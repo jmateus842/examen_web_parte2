@@ -1,0 +1,16 @@
+/* Estilos extra para el carrusel */
+:host {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .w-11/12 {
+    width: 95%;
+  }
+}
+

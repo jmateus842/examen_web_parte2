@@ -1,0 +1,19 @@
+<!-- Overlay de carrusel -->
+<div class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" (click)="onBackdrop($event)">
+  <!-- Contenedor de la imagen y controles -->
+  <div class="relative w-11/12 md:w-2/3 lg:w-1/2" (click)="$event.stopPropagation()">
+    <!-- Indicador de carga -->
+    <div *ngIf="!imageLoaded" class="flex justify-center items-center py-8 text-white text-xl">Cargando...</div>
+    <!-- Imagen actual -->
+    <img [src]="images[currentIndex]"
+         (load)="imageLoaded = true"
+         class="max-h-[80vh] w-full h-auto object-contain rounded shadow-lg" alt="galaxy" />
+
+    <!-- Boton cerrar -->
+    <button class="absolute top-2 right-2 text-white text-3xl" (click)="close()">&times;</button>
+
+    <!-- Controles anterior / siguiente -->
+    <button class="absolute top-1/2 left-2 transform -translate-y-1/2 text-white text-4xl" (click)="prev($event)">&#8249;</button>
+    <button class="absolute top-1/2 right-2 transform -translate-y-1/2 text-white text-4xl" (click)="next($event)">&#8250;</button>
+  </div>
+</div>

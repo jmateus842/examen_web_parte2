@@ -1,0 +1,23 @@
+<table class="table-auto w-full border-collapse">
+  <thead>
+    <tr>
+      <th class="border px-4 py-2 text-left">Titulo</th>
+      <th class="border px-4 py-2 text-left">Fecha</th>
+      <th class="border px-4 py-2 text-left">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of (items$ | async); let i = index">
+      <td class="border px-4 py-2">{{ item.titulo }}</td>
+      <td class="border px-4 py-2">{{ item.fecha | date:'mediumDate' }}</td>
+      <td class="border px-4 py-2">
+        <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded" (click)="abrirCarrusel(i)">
+          Ver
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Carrusel: se muestra cuando showCarousel es verdadero -->
+<app-carousel *ngIf="showCarousel" [images]="currentImages" (closed)="cerrarCarrusel()"></app-carousel>
